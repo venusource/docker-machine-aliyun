@@ -1,0 +1,59 @@
+{
+	"ImportPath": "github.com/venusource/docker-machine-aliyun",
+	"GoVersion": "go1.5",
+	"Packages": [
+		"github.com/venusource/docker-machine-aliyun",
+		"github.com/venusource/docker-machine-aliyun/bin"
+	],
+	"Deps": [
+		{
+			"ImportPath": "github.com/ChangjunZhao/aliyun-api-golang/ecs",
+			"Comment": "v0.2",
+			"Rev": "87f2d363cb5d06932ec59c97bf383aaab754fcf0"
+		},
+		{
+			"ImportPath": "github.com/ChangjunZhao/aliyun-api-golang/signer",
+			"Comment": "v0.2",
+			"Rev": "87f2d363cb5d06932ec59c97bf383aaab754fcf0"
+		},
+		{
+			"ImportPath": "github.com/ChangjunZhao/aliyun-api-golang/util",
+			"Comment": "v0.2",
+			"Rev": "87f2d363cb5d06932ec59c97bf383aaab754fcf0"
+		},
+		{
+			"ImportPath": "github.com/docker/machine/commands/mcndirs",
+			"Comment": "v0.5.0",
+			"Rev": "04cfa58445f063509699cdde41080a410330c4df"
+		},
+		{
+			"ImportPath": "github.com/docker/machine/drivers/none",
+			"Comment": "v0.5.0",
+			"Rev": "04cfa58445f063509699cdde41080a410330c4df"
+		},
+		{
+			"ImportPath": "github.com/docker/machine/libmachine",
+			"Comment": "v0.5.0",
+			"Rev": "04cfa58445f063509699cdde41080a410330c4df"
+		},
+		{
+			"ImportPath": "github.com/docker/machine/vendor/github.com/docker/docker/pkg/term",
+			"Comment": "v0.5.0",
+			"Rev": "04cfa58445f063509699cdde41080a410330c4df"
+		},
+		{
+			"ImportPath": "github.com/docker/machine/vendor/golang.org/x/crypto/ssh",
+			"Comment": "v0.5.0",
+			"Rev": "04cfa58445f063509699cdde41080a410330c4df"
+		},
+		{
+			"ImportPath": "github.com/hypersleep/easyssh",
+			"Comment": "0.1-4-g80f5b1f",
+			"Rev": "80f5b1f131b844171e01ce653a6aaa0359227fd0"
+		},
+		{
+			"ImportPath": "golang.org/x/crypto/ssh",
+			"Rev": "1fbbd62cfec66bd39d91e97749579579d4d3037e"
+		}
+	]
+}
