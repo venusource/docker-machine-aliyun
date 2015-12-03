@@ -56,7 +56,7 @@ func (d *Driver) GetSSHHostname() (string, error) {
 
 // DriverName returns the name of the driver
 func (d *Driver) DriverName() string {
-	return "aliyun"
+	return driverName
 }
 
 func (d *Driver) GetURL() (string, error) {
@@ -77,7 +77,7 @@ func (d *Driver) GetIP() (string, error) {
 		d.AccessKeySecret,
 	)
 
-	instance, err := c.DescribeInstanceAttribute(d.InstanceID)
+	instance, err := c.DescribeInstanceAttribute(d.RegionId, d.InstanceID)
 
 	if err != nil {
 		return "", fmt.Errorf("No IP found for the machine")
@@ -94,7 +94,7 @@ func (d *Driver) GetState() (state.State, error) {
 		d.AccessKeyID,
 		d.AccessKeySecret,
 	)
-	if instance, err := c.DescribeInstanceAttribute(d.InstanceID); err != nil {
+	if instance, err := c.DescribeInstanceAttribute(d.RegionId, d.InstanceID); err != nil {
 		return state.None, err
 	} else {
 		switch instance.Status {

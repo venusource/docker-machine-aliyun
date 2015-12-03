@@ -8,43 +8,68 @@
 	"Deps": [
 		{
 			"ImportPath": "github.com/ChangjunZhao/aliyun-api-golang/ecs",
-			"Comment": "v0.2",
-			"Rev": "87f2d363cb5d06932ec59c97bf383aaab754fcf0"
+			"Comment": "v0.2-1-g0313eb4",
+			"Rev": "0313eb44110404d1aa9e5032ca25f8916ecf840b"
 		},
 		{
 			"ImportPath": "github.com/ChangjunZhao/aliyun-api-golang/signer",
-			"Comment": "v0.2",
-			"Rev": "87f2d363cb5d06932ec59c97bf383aaab754fcf0"
+			"Comment": "v0.2-1-g0313eb4",
+			"Rev": "0313eb44110404d1aa9e5032ca25f8916ecf840b"
 		},
 		{
 			"ImportPath": "github.com/ChangjunZhao/aliyun-api-golang/util",
-			"Comment": "v0.2",
-			"Rev": "87f2d363cb5d06932ec59c97bf383aaab754fcf0"
+			"Comment": "v0.2-1-g0313eb4",
+			"Rev": "0313eb44110404d1aa9e5032ca25f8916ecf840b"
 		},
 		{
-			"ImportPath": "github.com/docker/machine/commands/mcndirs",
-			"Comment": "v0.5.0",
-			"Rev": "04cfa58445f063509699cdde41080a410330c4df"
+			"ImportPath": "github.com/docker/machine/libmachine/drivers",
+			"Comment": "v0.5.2",
+			"Rev": "0456b9fc8f6d2202cfc6df8b2ef46474052896cc"
 		},
 		{
-			"ImportPath": "github.com/docker/machine/drivers/none",
-			"Comment": "v0.5.0",
-			"Rev": "04cfa58445f063509699cdde41080a410330c4df"
+			"ImportPath": "github.com/docker/machine/libmachine/log",
+			"Comment": "v0.5.2",
+			"Rev": "0456b9fc8f6d2202cfc6df8b2ef46474052896cc"
 		},
 		{
-			"ImportPath": "github.com/docker/machine/libmachine",
-			"Comment": "v0.5.0",
-			"Rev": "04cfa58445f063509699cdde41080a410330c4df"
+			"ImportPath": "github.com/docker/machine/libmachine/mcnflag",
+			"Comment": "v0.5.2",
+			"Rev": "0456b9fc8f6d2202cfc6df8b2ef46474052896cc"
+		},
+		{
+			"ImportPath": "github.com/docker/machine/libmachine/mcnutils",
+			"Comment": "v0.5.2",
+			"Rev": "0456b9fc8f6d2202cfc6df8b2ef46474052896cc"
+		},
+		{
+			"ImportPath": "github.com/docker/machine/libmachine/ssh",
+			"Comment": "v0.5.2",
+			"Rev": "0456b9fc8f6d2202cfc6df8b2ef46474052896cc"
+		},
+		{
+			"ImportPath": "github.com/docker/machine/libmachine/state",
+			"Comment": "v0.5.2",
+			"Rev": "0456b9fc8f6d2202cfc6df8b2ef46474052896cc"
+		},
+		{
+			"ImportPath": "github.com/docker/machine/libmachine/version",
+			"Comment": "v0.5.2",
+			"Rev": "0456b9fc8f6d2202cfc6df8b2ef46474052896cc"
 		},
 		{
 			"ImportPath": "github.com/docker/machine/vendor/github.com/docker/docker/pkg/term",
-			"Comment": "v0.5.0",
-			"Rev": "04cfa58445f063509699cdde41080a410330c4df"
+			"Comment": "v0.5.2",
+			"Rev": "0456b9fc8f6d2202cfc6df8b2ef46474052896cc"
+		},
+		{
+			"ImportPath": "github.com/docker/machine/vendor/golang.org/x/crypto/curve25519",
+			"Comment": "v0.5.2",
+			"Rev": "0456b9fc8f6d2202cfc6df8b2ef46474052896cc"
 		},
 		{
 			"ImportPath": "github.com/docker/machine/vendor/golang.org/x/crypto/ssh",
-			"Comment": "v0.5.0",
-			"Rev": "04cfa58445f063509699cdde41080a410330c4df"
+			"Comment": "v0.5.2",
+			"Rev": "0456b9fc8f6d2202cfc6df8b2ef46474052896cc"
 		},
 		{
 			"ImportPath": "github.com/hypersleep/easyssh",
@@ -52,8 +77,12 @@
 			"Rev": "80f5b1f131b844171e01ce653a6aaa0359227fd0"
 		},
 		{
+			"ImportPath": "golang.org/x/crypto/curve25519",
+			"Rev": "beef0f4390813b96e8e68fd78570396d0f4751fc"
+		},
+		{
 			"ImportPath": "golang.org/x/crypto/ssh",
-			"Rev": "1fbbd62cfec66bd39d91e97749579579d4d3037e"
+			"Rev": "beef0f4390813b96e8e68fd78570396d0f4751fc"
 		}
 	]
 }
