@@ -75,10 +75,11 @@ $ docker-machine create \
     --swarm \
     --security-group-id=sg-251qxbzp7 \
     --swarm-discovery token://fe0cc96a72cf04dba8c1c4aa79536ec3 \
-    swarm-agent-
+    swarm-agent-01
 
 $ eval $(docker-machine env --swarm swarm-master)
 ```
+note: update security-group-id to your security group id 
 
 ## Development
 
