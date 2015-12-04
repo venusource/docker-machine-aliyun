@@ -366,6 +366,9 @@ func (d *Driver) SetConfigFromFlags(flags drivers.DriverOptions) error {
 	d.Password = flags.String("root-password")
 	d.IoOptimized = flags.String("io-optimized")
 	d.VSwitchId = flags.String("vswitch-id")
+	d.SwarmMaster = flags.Bool("swarm-master")
+	d.SwarmHost = flags.String("swarm-host")
+	d.SwarmDiscovery = flags.String("swarm-discovery")
 	return d.checkConfig()
 }
 

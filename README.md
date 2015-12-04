@@ -52,6 +52,34 @@ Environment variables/CLI option and default values:
 | `--vswitch-id`                | -                           | -                                         |
 
 
+## Create a Swarm
+
+``` console
+$ docker-machine create \
+        -d aliyun \
+        --swarm \
+        --swarm-master \
+        --security-group-id=sg-251qxbzp7 \
+        --swarm-discovery token://fe0cc96a72cf04dba8c1c4aa79536ec3 \
+        swarm-master
+
+$ docker-machine create \
+    -d aliyun \
+    --swarm \
+    --security-group-id=sg-251qxbzp7 \
+    --swarm-discovery token://fe0cc96a72cf04dba8c1c4aa79536ec3 \
+    swarm-agent-00
+
+$ docker-machine create \
+    -d aliyun \
+    --swarm \
+    --security-group-id=sg-251qxbzp7 \
+    --swarm-discovery token://fe0cc96a72cf04dba8c1c4aa79536ec3 \
+    swarm-agent-
+
+$ eval $(docker-machine env --swarm swarm-master)
+```
+
 ## Development
 
 ### Build from Source
