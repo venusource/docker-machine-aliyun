@@ -342,11 +342,11 @@ const (
 )
 
 func (d *Driver) checkConfig() error {
-	/*
+	if d.SwarmDiscovery != "" {
 		if d.SecurityGroupId == "" {
 			return fmt.Errorf(errorMandatoryEnvOrOption, "Aliyun安全组ID", "SECURITY_GROUP_ID", "--security-group-id")
 		}
-	*/
+	}
 	if d.AccessKeyID == "" {
 		return fmt.Errorf(errorMandatoryEnvOrOption, "Aliyun Access Key Id", "ACCESS_KEY_ID", "--access-key-id")
 	}

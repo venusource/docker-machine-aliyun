@@ -32,7 +32,7 @@ or put it to bash_profile file.
 then run this command:
 
 ```console
-$ docker-machine create --driver=aliyun --security-group-id=your-security-group aliyuntest
+$ docker-machine create --driver=aliyun aliyuntest
 ```
 
 Environment variables/CLI option and default values:
