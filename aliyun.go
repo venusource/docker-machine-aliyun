@@ -27,18 +27,19 @@ const (
 
 type Driver struct {
 	*drivers.BaseDriver
-	InstanceID         string
-	AccessKeyID        string
-	AccessKeySecret    string
-	RegionId           string
-	ZoneId             string
-	ImageId            string
-	InstanceType       string
-	SecurityGroupId    string
-	InternetChargeType string
-	Password           string
-	IoOptimized        string
-	VSwitchId          string
+	InstanceID          string
+	AccessKeyID         string
+	AccessKeySecret     string
+	RegionId            string
+	ZoneId              string
+	ImageId             string
+	InstanceType        string
+	SecurityGroupId     string
+	InternetChargeType  string
+	Password            string
+	IoOptimized         string
+	VSwitchId           string
+	IsTempSecurityGroup bool
 }
 
 func NewDriver(hostName, storePath string) *Driver {
@@ -114,8 +115,17 @@ func (d *Driver) GetState() (state.State, error) {
 }
 
 func (d *Driver) Create() error {
-	log.WithField("driver", d.DriverName()).Info("begin create aliyun instance...")
+	if d.SecurityGroupId == "" {
+		log.WithField("driver", d.DriverName()).Info("Begin create SecurityGroup...")
+		err := d.createSecurityGroup()
+		if err != nil {
+			return fmt.Errorf(errorOnCreateSecurityGroup, err.Error())
+		}
+	}
+
+	log.WithField("driver", d.DriverName()).Info("Begin create aliyun instance...")
 	d.createSSHKey()
+
 	c := ecs.NewClient(
 		d.AccessKeyID,
 		d.AccessKeySecret,
@@ -170,6 +180,61 @@ func (d *Driver) Create() error {
 	}
 
 	return nil
+}
+
+func (d *Driver) deleteSecurityGroup() {
+	c := ecs.NewClient(
+		d.AccessKeyID,
+		d.AccessKeySecret,
+	)
+	_, err := c.DeleteSecurityGroup(&ecs.DeleteSecurityGroupRequest{RegionId: d.RegionId, SecurityGroupId: d.SecurityGroupId})
+	if err != nil {
+		fmt.Println(err.Error())
+		fmt.Println("删除安全组失败，请登录阿里云管理控制台手动删除")
+	}
+}
+
+func (d *Driver) createSecurityGroup() error {
+	c := ecs.NewClient(
+		d.AccessKeyID,
+		d.AccessKeySecret,
+	)
+	req := &ecs.CreateSecurityGroupRequest{RegionId: d.RegionId, SecurityGroupName: "Docker_Machine"}
+	response, err := c.CreateSecurityGroup(req)
+	if err != nil {
+		return fmt.Errorf(errorOnCreateMachine, err.Error())
+	} else {
+		d.SecurityGroupId = response.SecurityGroupId
+		//22端口
+		_, err := c.AuthorizeSecurityGroup(d.CreateAuthorizeSecurityGroupRequest(d.SecurityGroupId, "22/22"))
+		if err != nil {
+			d.deleteSecurityGroup()
+			return fmt.Errorf(err.Error())
+		}
+
+		//2376端口
+		_, err = c.AuthorizeSecurityGroup(d.CreateAuthorizeSecurityGroupRequest(d.SecurityGroupId, "2376/2376"))
+		if err != nil {
+			d.deleteSecurityGroup()
+			return fmt.Errorf(err.Error())
+		}
+
+		if d.SwarmMaster {
+			//3376端口
+			_, err = c.AuthorizeSecurityGroup(d.CreateAuthorizeSecurityGroupRequest(d.SecurityGroupId, "3376/3376"))
+			if err != nil {
+				d.deleteSecurityGroup()
+				return fmt.Errorf(err.Error())
+			}
+		}
+
+	}
+	d.IsTempSecurityGroup = true
+	return nil
+}
+
+func (d *Driver) CreateAuthorizeSecurityGroupRequest(securityGroupId string, portRange string) *ecs.AuthorizeSecurityGroupRequest {
+	return &ecs.AuthorizeSecurityGroupRequest{SecurityGroupId: securityGroupId, RegionId: d.RegionId, IpProtocol: "tcp", PortRange: portRange, SourceCidrIp: "0.0.0.0/0"}
 }
 
 /**
@@ -235,6 +300,16 @@ func (d *Driver) Remove() error {
 	if err := c.DeleteInstance(d.InstanceID); err != nil {
 		return fmt.Errorf(errorOnRemoveMachine, err.Error())
 	}
+
+	if d.IsTempSecurityGroup {
+		for {
+			if cstate, _ := d.GetState(); cstate == state.None {
+				d.deleteSecurityGroup()
+				break
+			}
+			time.Sleep(1 * time.Second)
+		}
+	}
 	return nil
 }
 
@@ -263,12 +338,15 @@ const (
 	errorOnRestartMachine          string = "can not restart machine: %s"
 	errorOnAllocatePublicIpAddress string = "can not AllocatePublicIpAddress: %s"
 	errorOnRollback                string = "程序不能自动删除虚拟机，回滚失败，请手动删除: %s"
+	errorOnCreateSecurityGroup     string = "Can not create SecurityGroup"
 )
 
 func (d *Driver) checkConfig() error {
-	if d.SecurityGroupId == "" {
-		return fmt.Errorf(errorMandatoryEnvOrOption, "Aliyun安全组ID", "SECURITY_GROUP_ID", "--security-group-id")
-	}
+	/*
+		if d.SecurityGroupId == "" {
+			return fmt.Errorf(errorMandatoryEnvOrOption, "Aliyun安全组ID", "SECURITY_GROUP_ID", "--security-group-id")
+		}
+	*/
 	if d.AccessKeyID == "" {
 		return fmt.Errorf(errorMandatoryEnvOrOption, "Aliyun Access Key Id", "ACCESS_KEY_ID", "--access-key-id")
 	}
