@@ -92,7 +92,7 @@ Run these commands to build the plugin binary:
 
 ```bash
 $ go get -d github.com/venusource/docker-machine-aliyun
-$ cd $GOPATH/github.com/venusource/docker-machine-aliyun
+$ cd $GOPATH/src/github.com/venusource/docker-machine-aliyun
 $ make build
 ```
 
