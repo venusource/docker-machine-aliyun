@@ -10,7 +10,7 @@ To install this plugin manually, download the binary `docker-machine-driver-aliy
 and  make it available by `$PATH`, for example by putting it to `/usr/local/bin/`:
 
 ```console
-$ curl -L https://github.com/venusource/docker-machine-aliyun/releases/download/v1.0.0/docker-machine-driver-aliyun > /usr/local/bin/docker-machine-driver-aliyun
+$ curl -L https://github.com/venusource/docker-machine-aliyun/releases/download/v1.1.0/docker-machine-driver-aliyun > /usr/local/bin/docker-machine-driver-aliyun
 
 $ chmod +x /usr/local/bin/docker-machine-driver-aliyun
 ```
