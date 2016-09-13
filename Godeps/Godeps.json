@@ -1,75 +1,71 @@
 {
 	"ImportPath": "github.com/venusource/docker-machine-aliyun",
-	"GoVersion": "go1.5",
-	"Packages": [
-		"github.com/venusource/docker-machine-aliyun",
-		"github.com/venusource/docker-machine-aliyun/bin"
-	],
+	"GoVersion": "go1.6.3",
 	"Deps": [
 		{
 			"ImportPath": "github.com/ChangjunZhao/aliyun-api-golang/ecs",
-			"Comment": "v0.2-2-gf5eaa57",
-			"Rev": "f5eaa57f88435957a17984ffed3376888e4736bf"
+			"Comment": "v0.2-4-ged43482",
+			"Rev": "ed43482dc9a01f44e4d0e91f93f53dafb035d468"
 		},
 		{
 			"ImportPath": "github.com/ChangjunZhao/aliyun-api-golang/signer",
-			"Comment": "v0.2-2-gf5eaa57",
-			"Rev": "f5eaa57f88435957a17984ffed3376888e4736bf"
+			"Comment": "v0.2-4-ged43482",
+			"Rev": "ed43482dc9a01f44e4d0e91f93f53dafb035d468"
 		},
 		{
 			"ImportPath": "github.com/ChangjunZhao/aliyun-api-golang/util",
-			"Comment": "v0.2-2-gf5eaa57",
-			"Rev": "f5eaa57f88435957a17984ffed3376888e4736bf"
+			"Comment": "v0.2-4-ged43482",
+			"Rev": "ed43482dc9a01f44e4d0e91f93f53dafb035d468"
 		},
 		{
 			"ImportPath": "github.com/docker/machine/libmachine/drivers",
-			"Comment": "v0.5.2",
-			"Rev": "0456b9fc8f6d2202cfc6df8b2ef46474052896cc"
+			"Comment": "docs-v0.8.0-2016-07-28-93-g85bef34",
+			"Rev": "85bef344b7be221c79a1e0173acf44715075f0f9"
 		},
 		{
 			"ImportPath": "github.com/docker/machine/libmachine/log",
-			"Comment": "v0.5.2",
-			"Rev": "0456b9fc8f6d2202cfc6df8b2ef46474052896cc"
+			"Comment": "docs-v0.8.0-2016-07-28-93-g85bef34",
+			"Rev": "85bef344b7be221c79a1e0173acf44715075f0f9"
 		},
 		{
 			"ImportPath": "github.com/docker/machine/libmachine/mcnflag",
-			"Comment": "v0.5.2",
-			"Rev": "0456b9fc8f6d2202cfc6df8b2ef46474052896cc"
+			"Comment": "docs-v0.8.0-2016-07-28-93-g85bef34",
+			"Rev": "85bef344b7be221c79a1e0173acf44715075f0f9"
 		},
 		{
 			"ImportPath": "github.com/docker/machine/libmachine/mcnutils",
-			"Comment": "v0.5.2",
-			"Rev": "0456b9fc8f6d2202cfc6df8b2ef46474052896cc"
+			"Comment": "docs-v0.8.0-2016-07-28-93-g85bef34",
+			"Rev": "85bef344b7be221c79a1e0173acf44715075f0f9"
 		},
 		{
 			"ImportPath": "github.com/docker/machine/libmachine/ssh",
-			"Comment": "v0.5.2",
-			"Rev": "0456b9fc8f6d2202cfc6df8b2ef46474052896cc"
+			"Comment": "docs-v0.8.0-2016-07-28-93-g85bef34",
+			"Rev": "85bef344b7be221c79a1e0173acf44715075f0f9"
 		},
 		{
 			"ImportPath": "github.com/docker/machine/libmachine/state",
-			"Comment": "v0.5.2",
-			"Rev": "0456b9fc8f6d2202cfc6df8b2ef46474052896cc"
-		},
-		{
-			"ImportPath": "github.com/docker/machine/libmachine/version",
-			"Comment": "v0.5.2",
-			"Rev": "0456b9fc8f6d2202cfc6df8b2ef46474052896cc"
+			"Comment": "docs-v0.8.0-2016-07-28-93-g85bef34",
+			"Rev": "85bef344b7be221c79a1e0173acf44715075f0f9"
 		},
 		{
 			"ImportPath": "github.com/docker/machine/vendor/github.com/docker/docker/pkg/term",
-			"Comment": "v0.5.2",
-			"Rev": "0456b9fc8f6d2202cfc6df8b2ef46474052896cc"
+			"Comment": "docs-v0.8.0-2016-07-28-93-g85bef34",
+			"Rev": "85bef344b7be221c79a1e0173acf44715075f0f9"
 		},
 		{
 			"ImportPath": "github.com/docker/machine/vendor/golang.org/x/crypto/curve25519",
-			"Comment": "v0.5.2",
-			"Rev": "0456b9fc8f6d2202cfc6df8b2ef46474052896cc"
+			"Comment": "docs-v0.8.0-2016-07-28-93-g85bef34",
+			"Rev": "85bef344b7be221c79a1e0173acf44715075f0f9"
 		},
 		{
 			"ImportPath": "github.com/docker/machine/vendor/golang.org/x/crypto/ssh",
-			"Comment": "v0.5.2",
-			"Rev": "0456b9fc8f6d2202cfc6df8b2ef46474052896cc"
+			"Comment": "docs-v0.8.0-2016-07-28-93-g85bef34",
+			"Rev": "85bef344b7be221c79a1e0173acf44715075f0f9"
+		},
+		{
+			"ImportPath": "github.com/docker/machine/version",
+			"Comment": "docs-v0.8.0-2016-07-28-93-g85bef34",
+			"Rev": "85bef344b7be221c79a1e0173acf44715075f0f9"
 		},
 		{
 			"ImportPath": "github.com/hypersleep/easyssh",
@@ -78,11 +74,11 @@
 		},
 		{
 			"ImportPath": "golang.org/x/crypto/curve25519",
-			"Rev": "beef0f4390813b96e8e68fd78570396d0f4751fc"
+			"Rev": "aedad9a179ec1ea11b7064c57cbc6dc30d7724ec"
 		},
 		{
 			"ImportPath": "golang.org/x/crypto/ssh",
-			"Rev": "beef0f4390813b96e8e68fd78570396d0f4751fc"
+			"Rev": "aedad9a179ec1ea11b7064c57cbc6dc30d7724ec"
 		}
 	]
 }

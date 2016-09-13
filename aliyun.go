@@ -90,7 +90,7 @@ func (d *Driver) GetIP() (string, error) {
 }
 
 func (d *Driver) GetState() (state.State, error) {
-	log.WithField("MachineId", d.InstanceID).Debug("Get status for aliyun instance...")
+	log.Debug("Get status for aliyun instance...")
 	c := ecs.NewClient(
 		d.AccessKeyID,
 		d.AccessKeySecret,
@@ -116,14 +116,14 @@ func (d *Driver) GetState() (state.State, error) {
 
 func (d *Driver) Create() error {
 	if d.SecurityGroupId == "" {
-		log.WithField("driver", d.DriverName()).Info("Begin create SecurityGroup...")
+		log.Info("Begin create SecurityGroup...")
 		err := d.createSecurityGroup()
 		if err != nil {
 			return fmt.Errorf(errorOnCreateSecurityGroup, err.Error())
 		}
 	}
 
-	log.WithField("driver", d.DriverName()).Info("Begin create aliyun instance...")
+	log.Info("Begin create aliyun instance...")
 	d.createSSHKey()
 
 	c := ecs.NewClient(
@@ -241,7 +241,7 @@ func (d *Driver) CreateAuthorizeSecurityGroupRequest(securityGroupId string, por
 等待服务器启动
 **/
 func (d *Driver) waitForInstanceActive() error {
-	log.WithField("MachineId", d.InstanceID).Debug("Waiting for the aliyun instance to be ACTIVE...")
+	log.Debug("Waiting for the aliyun instance to be ACTIVE...")
 	for {
 
 		if cstate, _ := d.GetState(); cstate == state.Running {
@@ -253,7 +253,7 @@ func (d *Driver) waitForInstanceActive() error {
 }
 
 func (d *Driver) Start() error {
-	log.WithField("InstanceID", d.InstanceID).Info("Starting aliyun instance...")
+	log.Info("Starting aliyun instance...")
 	c := ecs.NewClient(
 		d.AccessKeyID,
 		d.AccessKeySecret,
@@ -265,7 +265,7 @@ func (d *Driver) Start() error {
 }
 
 func (d *Driver) Stop() error {
-	log.WithField("InstanceID", d.InstanceID).Info("Stopping aliyun instance...")
+	log.Info("Stopping aliyun instance...")
 	c := ecs.NewClient(
 		d.AccessKeyID,
 		d.AccessKeySecret,
@@ -278,7 +278,7 @@ func (d *Driver) Stop() error {
 }
 
 func (d *Driver) Remove() error {
-	log.WithField("InstanceID", d.InstanceID).Debug("deleting instance...")
+	log.Debug("deleting instance...")
 	log.Info("Deleting aliyun instance...")
 	c := ecs.NewClient(
 		d.AccessKeyID,
@@ -314,7 +314,7 @@ func (d *Driver) Remove() error {
 }
 
 func (d *Driver) Restart() error {
-	log.WithField("InstanceID", d.InstanceID).Info("Restarting Aliyun instance...")
+	log.Info("Restarting Aliyun instance...")
 	c := ecs.NewClient(
 		d.AccessKeyID,
 		d.AccessKeySecret,
